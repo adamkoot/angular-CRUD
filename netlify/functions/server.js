@@ -29,7 +29,7 @@ const campaignSchema = new mongoose.Schema({
 
 const Campaign = mongoose.model("Campaign", campaignSchema);
 
-app.get("/campaigns", async (req, res) => {
+app.get("/api/campaigns", async (req, res) => {
   const campaigns = await Campaign.find();
   res.json(campaigns);
 });
