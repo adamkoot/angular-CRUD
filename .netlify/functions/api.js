@@ -11,7 +11,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 mongoose.connect(
-  "mongodb+srv://dbuser:dbuser@cluster0.ggwyukx.mongodb.net/?retryWrites=true&w=majority",
+  "mongodb://dbuser:dbpassword@cluster0.ggwyukx.mongodb.net:27017/test",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
