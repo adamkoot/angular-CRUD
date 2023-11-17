@@ -11,8 +11,15 @@ export class CampaignService {
   constructor(private http: HttpClient) {}
 
   getAllCampaigns(): Observable<any> {
-    console.log(this.http.get(this.baseUrl))
-    return this.http.get(this.baseUrl);
+    this.http.get(this.baseUrl).subscribe(
+        (data) => {
+          console.log(data)
+        },
+        (error) => {
+          console.error('Błąd w zapytaniu HTTP:', error);
+        }
+      );
+      return this.http.get(this.baseUrl);
   }
 
   getCampaignById(id: string): Observable<any> {
