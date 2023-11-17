@@ -2,17 +2,21 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-
+const serverless = require("serverless-http");
+const Router = require("express");
 const app = express();
-const PORT = 3000;
+const router = Router();
 
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect("mongodb://localhost:27017/campaigns", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(
+  "mongodb+srv://dbuser:dbuser@cluster0.ggwyukx.mongodb.net/?retryWrites=true&w=majority",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
 
 const campaignSchema = new mongoose.Schema({
   name: String,
@@ -52,6 +56,5 @@ app.delete("/campaigns/:id", async (req, res) => {
   res.json({ success: true });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+app.use("/api/", router);
+module.exports.handler = serverless(app);
