@@ -56,5 +56,5 @@ app.delete("/campaigns/:id", async (req, res) => {
   res.json({ success: true });
 });
 
-app.use("/.netlify/functions/server", router);
+app.use("/.netlify/functions/server/", router);
 module.exports.handler = serverless(app);
