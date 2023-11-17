@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: HttpClientModule
 })
 export class CampaignService {
-  private baseUrl = 'http://localhost:3000/campaigns';
+  private baseUrl = '/api/campaigns';
 
   constructor(private http: HttpClient) {}
 
