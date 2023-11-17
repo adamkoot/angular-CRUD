@@ -11,6 +11,7 @@ export class CampaignService {
   constructor(private http: HttpClient) {}
 
   getAllCampaigns(): Observable<any> {
+    console.log(this.http.get(this.baseUrl))
     return this.http.get(this.baseUrl);
   }
 
