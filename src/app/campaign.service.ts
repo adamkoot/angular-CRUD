@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: HttpClientModule
 })
 export class CampaignService {
-  private baseUrl = 'mongodb+srv://dbuser:dbuser@cluster0.ggwyukx.mongodb.net/?retryWrites=true&w=majority/campaigns';
+  private baseUrl = '/.netlify/functions/api';
 
   constructor(private http: HttpClient) {}
 
