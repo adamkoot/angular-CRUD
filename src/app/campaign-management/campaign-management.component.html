@@ -1,0 +1,50 @@
+<div>
+  <h2>Campaign Management</h2>
+  <form (ngSubmit)="submitCampaign()">
+    <label>Campaign Name:</label>
+    <input [(ngModel)]="campaign.name" name="name" required />
+
+    <label>Keywords:</label>
+    <input [(ngModel)]="campaign.keywords" name="keywords" required />
+
+    <label>Bid Amount:</label>
+    <input
+      type="number"
+      [(ngModel)]="campaign.bidAmount"
+      name="bidAmount"
+      required
+    />
+
+    <label>Campaign Fund:</label>
+    <input
+      type="number"
+      [(ngModel)]="campaign.campaignFund"
+      name="campaignFund"
+      required
+    />
+
+    <label>Status:</label>
+    <select [(ngModel)]="campaign.status" name="status" required>
+      <option value="on">On</option>
+      <option value="off">Off</option>
+    </select>
+
+    <label>Town:</label>
+    <select [(ngModel)]="campaign.town" name="town" required>
+      <option *ngFor="let town of towns" [value]="town">{{ town }}</option>
+    </select>
+
+    <label>Radius (in km):</label>
+    <input type="number" [(ngModel)]="campaign.radius" name="radius" required />
+
+    <button type="submit">{{ isEditMode ? "Edit" : "Submit" }}</button>
+  </form>
+
+  <ul>
+    <li *ngFor="let c of campaigns">
+      {{ c.name }} - {{ c.status }}
+      <button (click)="editCampaign(c._id)">Edit</button>
+      <button (click)="deleteCampaign(c._id)">Delete</button>
+    </li>
+  </ul>
+</div>

@@ -1,3 +1,5 @@
 import { Routes } from '@angular/router';
-
-export const routes: Routes = [];
+import { CampaignManagementComponent } from './campaign-management/campaign-management.component';
+export const routes: Routes = [
+    { path: 'campaign', component: CampaignManagementComponent }
+];
