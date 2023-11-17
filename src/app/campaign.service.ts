@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: HttpClientModule
 })
 export class CampaignService {
-  private baseUrl = '/campaigns';
+  private baseUrl = 'mongodb+srv://dbuser:dbuser@cluster0.ggwyukx.mongodb.net/?retryWrites=true&w=majority/campaigns';
 
   constructor(private http: HttpClient) {}
 
