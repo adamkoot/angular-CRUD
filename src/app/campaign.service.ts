@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: HttpClientModule
 })
 export class CampaignService {
-  private baseUrl = '/.netlify/functions/api';
+  private baseUrl = '/api/campaigns';
 
   constructor(private http: HttpClient) {}
 
