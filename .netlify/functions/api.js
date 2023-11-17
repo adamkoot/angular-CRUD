@@ -32,6 +32,10 @@ const Campaign = mongoose.model("Campaign", campaignSchema);
 
 app.get("/campaigns", async (req, res) => {
   const campaigns = await Campaign.find();
+
+  res.header("Content-Type", "application/json");
+
+  // Zwróć dane kampanii jako JSON
   res.json(campaigns);
 });
 

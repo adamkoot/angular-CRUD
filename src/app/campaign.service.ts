@@ -1,28 +1,18 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpClientModule, HttpHeaders  } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: HttpClientModule
 })
-
-
-
 export class CampaignService {
   private baseUrl = '/api/campaigns';
 
   constructor(private http: HttpClient) {}
-
-    httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-      // Dodaj inne nagłówki, jeśli są potrzebne
-    })
-  };
   
 
   getAllCampaigns(): Observable<any> {
-    this.http.get(this.baseUrl, this.httpOptions).subscribe(
+    this.http.get(this.baseUrl).subscribe(
         (data) => {
           console.log(data)
         },
@@ -30,7 +20,7 @@ export class CampaignService {
           console.error('Błąd w zapytaniu HTTP:', error);
         }
       );
-      return this.http.get(this.baseUrl, this.httpOptions);
+      return this.http.get(this.baseUrl);
   }
 
   getCampaignById(id: string): Observable<any> {
