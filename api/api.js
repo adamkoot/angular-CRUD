@@ -11,7 +11,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 mongoose.connect(
-  "mongodb+srv://dbuser:dbuser@cluster0.ggwyukx.mongodb.net/test",
+  "mongodb://dbuser:dbuser@cluster0.ggwyukx.mongodb.net/test",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
